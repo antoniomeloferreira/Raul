@@ -10,21 +10,24 @@ import javax.persistence.Table;
 public class TeamRankEntity {
 
     @Id
-    @Column(name = "competition_id")
-    private int CompetitionId;
+    @Column(name = "universe_id")
+    private Integer universeId;
 
     @Column(name = "team_name")
     private String teamName;
 
     @Column(name = "ranking")
-    private int ranking;
+    private Integer ranking;
 
-    public int getCompetitionId() {
-        return CompetitionId;
+    @Column(name = "is_default")
+    private Boolean isDefault;
+
+    public Integer getUniverseId() {
+        return universeId;
     }
 
-    public void setCompetitionId(int competitionId) {
-        CompetitionId = competitionId;
+    public void setUniverseId(Integer universeId) {
+        this.universeId = universeId;
     }
 
     public String getTeamName() {
@@ -35,11 +38,19 @@ public class TeamRankEntity {
         this.teamName = teamName;
     }
 
-    public int getRanking() {
+    public Integer getRanking() {
         return ranking;
     }
 
-    public void setRanking(int ranking) {
+    public void setRanking(Integer ranking) {
         this.ranking = ranking;
+    }
+
+    public Boolean getDefault() {
+        return isDefault;
+    }
+
+    public void setDefault(Boolean aDefault) {
+        isDefault = aDefault;
     }
 }

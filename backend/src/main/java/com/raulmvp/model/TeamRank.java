@@ -5,6 +5,7 @@ public class TeamRank {
     private int id;
     private Team teamName;
     private int ranking;
+    private boolean isDefault;
 
     public int getId() {
         return id;
@@ -28,5 +29,13 @@ public class TeamRank {
 
     public void setRanking(int ranking) {
         this.ranking = ranking;
+    }
+
+    public boolean isDefault() {
+        return isDefault;
+    }
+
+    public void setDefault(boolean aDefault) {
+        isDefault = aDefault;
     }
 }

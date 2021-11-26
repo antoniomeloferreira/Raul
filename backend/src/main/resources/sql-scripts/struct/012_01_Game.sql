@@ -1,12 +1,12 @@
 CREATE TABLE Game (
   id SERIAL PRIMARY KEY,
-  home_user varchar(32),
-  away_user varchar(32),
-  home_team varchar(32),
-  away_team varchar(32),
+  home_user varchar(32) NOT NULL,
+  away_user varchar(32) NOT NULL,
+  home_team varchar(32) NOT NULL,
+  away_team varchar(32) NOT NULL,
   home_score varchar(32),
   away_score varchar(32),
-  competition_id int,
+  competition_id int NOT NULL,
 
     CONSTRAINT fk_home_user FOREIGN KEY(home_user) REFERENCES RaulUser(username),
     CONSTRAINT fk_away_user FOREIGN KEY(away_user) REFERENCES RaulUser(username),
