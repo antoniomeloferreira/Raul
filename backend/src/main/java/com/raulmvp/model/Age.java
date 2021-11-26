@@ -4,7 +4,7 @@ public class Age {
 
     private int id;
     private int ageCounter;
-    private Universe universeId;
+    private Universe universe;
 
     public int getId() {
         return id;
@@ -23,10 +23,10 @@ public class Age {
     }
 
     public Universe getUniverse() {
-        return universeId;
+        return universe;
     }
 
     public void setUniverse(Universe universe) {
-        this.universeId = universe;
+        this.universe = universe;
     }
 }

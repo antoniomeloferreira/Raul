@@ -6,12 +6,12 @@ import java.util.List;
 public class Competition {
 
     private int id;
-    private Season seasonId;
+    private Season season;
     private int edition;
     private String name;
     private boolean isOver;
-    private User winnerUsername;
-    private List<Game> gameList;
+    private RaulUser winner;
+    private List<Game> calendar;
     private CompetitionConfig competitionConfig;
 
     public int getId() {
@@ -46,12 +46,12 @@ public class Competition {
         isOver = over;
     }
 
-    public User getWinnerUsername() {
-        return winnerUsername;
+    public RaulUser getWinner() {
+        return winner;
     }
 
-    public void setWinnerUsername(User winnerUsername) {
-        this.winnerUsername = winnerUsername;
+    public void setWinner(RaulUser winner) {
+        this.winner = winner;
     }
 
     public CompetitionConfig getCompetitionConfig() {
@@ -62,19 +62,19 @@ public class Competition {
         this.competitionConfig = competitionConfig;
     }
 
-    public Season getSeasonId() {
-        return seasonId;
+    public Season getSeason() {
+        return season;
     }
 
-    public void setSeasonId(Season seasonId) {
-        this.seasonId = seasonId;
+    public void setSeason(Season season) {
+        this.season = season;
     }
 
-    public List<Game> getGameList() {
-        return gameList;
+    public List<Game> getCalendar() {
+        return calendar;
     }
 
-    public void setGameList(List<Game> gameList) {
-        this.gameList = gameList;
+    public void setCalendar(List<Game> calendar) {
+        this.calendar = calendar;
     }
 }

@@ -3,7 +3,7 @@ package com.raulmvp.model;
 public class Country {
 
     private String name;
-    private Continent continentName;
+    private Continent continent;
 
     public String getName() {
         return name;
@@ -14,10 +14,10 @@ public class Country {
     }
 
     public Continent getContinent() {
-        return continentName;
+        return continent;
     }
 
     public void setContinent(Continent continent) {
-        this.continentName= continent;
+        this.continent= continent;
     }
 }

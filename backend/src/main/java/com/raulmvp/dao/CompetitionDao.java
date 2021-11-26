@@ -42,8 +42,8 @@ public class CompetitionDao extends AbstractEMDao {
         competitionEntity.setOver(competition.isOver());
         competitionEntity.setNumberOfGames(competition.getNumberOfGames());
 
-        String competitionWinnerName = competition.getWinnerUsername() == null ? null : competition.getWinnerUsername().getUserName();
-        competitionEntity.setWinnerUserId(competitionWinnerName);
+        String competitionWinnerName = competition.getWinner() == null ? null : competition.getWinner().getUserName();
+        competitionEntity.setWinnerUsername(competitionWinnerName);
 
         return competitionEntity;
     }

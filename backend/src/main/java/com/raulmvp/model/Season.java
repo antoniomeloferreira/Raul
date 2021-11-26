@@ -4,7 +4,7 @@ public class Season {
 
     private int id;
     private int seasonCounter;
-    private Age ageId;
+    private Age age;
 
     public int getId() {
         return id;
@@ -22,11 +22,11 @@ public class Season {
         this.seasonCounter = seasonCounter;
     }
 
-    public Age getAgeId() {
-        return ageId;
+    public Age getAge() {
+        return age;
     }
 
-    public void setAgeId(Age ageId) {
-        this.ageId = ageId;
+    public void setAge(Age age) {
+        this.age = age;
     }
 }

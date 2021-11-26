@@ -24,16 +24,20 @@ public class GameEntity {
     private String awayTeam;
 
     @Column(name = "home_score")
-    private int homeScore;
+    private Integer homeScore;
 
     @Column(name = "away_score")
-    private int awayScore;
+    private Integer awayScore;
 
     @Column(name = "competition_id")
     private String competition;
 
-    public int getId() {
+    public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getHomeUser() {
@@ -66,6 +70,22 @@ public class GameEntity {
 
     public void setAwayTeam(String awayTeam) {
         this.awayTeam = awayTeam;
+    }
+
+    public Integer getHomeScore() {
+        return homeScore;
+    }
+
+    public void setHomeScore(Integer homeScore) {
+        this.homeScore = homeScore;
+    }
+
+    public Integer getAwayScore() {
+        return awayScore;
+    }
+
+    public void setAwayScore(Integer awayScore) {
+        this.awayScore = awayScore;
     }
 
     public String getCompetition() {

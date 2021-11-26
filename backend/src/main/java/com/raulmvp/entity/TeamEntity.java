@@ -13,8 +13,8 @@ public class TeamEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "country")
-    private String country;
+    @Column(name = "country_name")
+    private String countryName;
 
     public String getName() {
         return name;
@@ -24,11 +24,11 @@ public class TeamEntity {
         this.name = name;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 }

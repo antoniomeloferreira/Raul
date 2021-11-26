@@ -4,7 +4,7 @@ public class Team {
 
     private String fullName;
     private String initials;
-    private String country;
+    private Country country;
     private boolean isNationalTeam;
 
     public String getFullName() {
@@ -23,11 +23,11 @@ public class Team {
         this.initials = initials;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

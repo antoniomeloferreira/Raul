@@ -18,10 +18,7 @@ public class CompetitionEntity {
     private Boolean isOver;
 
     @Column(name = "winner_username")
-    private String winnerUserId;
-
-    @Column(name = "number_of_games")
-    private Integer numberOfGames;
+    private String winnerUsername;
 
     @Column(name = "competition_config_id")
     private Integer competitionConfigId;
@@ -53,20 +50,12 @@ public class CompetitionEntity {
         isOver = over;
     }
 
-    public String getWinnerUserId() {
-        return winnerUserId;
+    public String getWinnerUsername() {
+        return winnerUsername;
     }
 
-    public void setWinnerUserId(String winnerUserId) {
-        this.winnerUserId = winnerUserId;
-    }
-
-    public Integer getNumberOfGames() {
-        return numberOfGames;
-    }
-
-    public void setNumberOfGames(Integer numberOfGames) {
-        this.numberOfGames = numberOfGames;
+    public void setWinnerUsername(String winnerUsername) {
+        this.winnerUsername = winnerUsername;
     }
 
     public Integer getCompetitionConfigId() {

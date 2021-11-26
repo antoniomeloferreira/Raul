@@ -1,10 +1,10 @@
 package com.raulmvp.model;
 
-public class User {
+public class RaulUser {
 
     private String userName;
     private String name;
-    private String password;
+    private String passwordHash;
     private String salt;
 
     public String getUserName() {
@@ -23,12 +23,12 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public String getSalt() {

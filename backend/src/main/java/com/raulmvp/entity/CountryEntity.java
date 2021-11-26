@@ -14,7 +14,7 @@ public class CountryEntity {
     private String name;
 
     @Column(name = "continent_name")
-    private String continent;
+    private String continentName;
 
     public String getName() {
         return name;
@@ -24,11 +24,11 @@ public class CountryEntity {
         this.name = name;
     }
 
-    public String getContinent() {
-        return continent;
+    public String getContinentName() {
+        return continentName;
     }
 
-    public void setContinent(String continent) {
-        this.continent = continent;
+    public void setContinentName(String continentName) {
+        this.continentName = continentName;
     }
 }

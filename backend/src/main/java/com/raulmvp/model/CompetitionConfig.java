@@ -5,6 +5,7 @@ public class CompetitionConfig {
 
     private final int numberOfUsers;
     private final int numberOfRounds;
+    private boolean isReverse;
 
     public CompetitionConfig(final int numberOfUsers, final int numberOfRounds) {
         this.numberOfUsers = numberOfUsers;
@@ -23,4 +24,19 @@ public class CompetitionConfig {
         return numberOfRounds * (getNumberOfGamesPerMatchWeek() * getMatchWeeksPerRound());
     }
 
+    public int getNumberOfUsers() {
+        return numberOfUsers;
+    }
+
+    public int getNumberOfRounds() {
+        return numberOfRounds;
+    }
+
+    public boolean isReverse() {
+        return isReverse;
+    }
+
+    public void setReverse(boolean reverse) {
+        isReverse = reverse;
+    }
 }

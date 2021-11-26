@@ -3,13 +3,13 @@ package com.raulmvp.model;
 public class Game {
 
     private int id;
-    private User homeUser;
-    private User awayUser;
+    private RaulUser homeUser;
+    private RaulUser awayUser;
     private Team homeTeam;
     private Team awayTeam;
     private int homeScore;
     private int awayScore;
-    private Competition competitionId;
+    private Competition competition;
 
     public Game(Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam;
@@ -24,19 +24,19 @@ public class Game {
         this.id = id;
     }
 
-    public User getHomeUser() {
+    public RaulUser getHomeUser() {
         return homeUser;
     }
 
-    public void setHomeUser(User homeUser) {
+    public void setHomeUser(RaulUser homeUser) {
         this.homeUser = homeUser;
     }
 
-    public User getAwayUser() {
+    public RaulUser getAwayUser() {
         return awayUser;
     }
 
-    public void setAwayUser(User awayUser) {
+    public void setAwayUser(RaulUser awayUser) {
         this.awayUser = awayUser;
     }
 
@@ -72,12 +72,12 @@ public class Game {
         this.awayScore = awayScore;
     }
 
-    public Competition getCompetitionId() {
-        return competitionId;
+    public Competition getCompetition() {
+        return competition;
     }
 
-    public void setCompetitionId(Competition competitionId) {
-        this.competitionId = competitionId;
+    public void setCompetition(Competition competition) {
+        this.competition = competition;
     }
 
     @Override
