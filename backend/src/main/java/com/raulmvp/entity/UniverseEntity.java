@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Universe")
 @NamedQueries({
-        @NamedQuery(name = "UniverseEntity.findById", query = "SELECT u FROM UniverseEntity u WHERE u.id=:id"),
+        @NamedQuery(name = "UniverseEntity.findByUsername", query = "SELECT u FROM UniverseEntity u LEFT JOIN UniverseUserEntity uu WITH u.id = uu.universeId WHERE uu.username=:username"),
 
 })
 

@@ -1,19 +1,26 @@
 package com.raulmvp.dao;
 
 import com.raulmvp.entity.UniverseEntity;
-import com.raulmvp.model.Universe;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class UniverseDao extends AbstractDao {
 
     public UniverseEntity getUniverseById(int id) {
 
-        Query q = em.createNamedQuery("UniverseEntity.findById", UniverseEntity.class);
-        q.setParameter("id", id);
+        return em.find(UniverseEntity.class, id);
+    }
 
-        return (UniverseEntity) q.getSingleResult();
+    public List<UniverseEntity> getUniverseListByUsername(String username) {
+        List<UniverseEntity> uLst = new ArrayList<>();
+        Query q = em.createNamedQuery("UniverseEntity.findByUsername");
+        q.setParameter("username", username);
+
+        uLst = q.getResultList();
+        return uLst;
     }
 }

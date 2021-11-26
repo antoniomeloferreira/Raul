@@ -1,12 +1,11 @@
 package com.raulmvp.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Age")
+@NamedQueries({
+        @NamedQuery(name="AgeEntity.findById", query = "SELECT u FROM AgeEntity u WHERE u.id=:id") })
 public class AgeEntity {
 
     @Id
