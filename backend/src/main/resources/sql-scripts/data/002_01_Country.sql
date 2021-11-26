@@ -58,7 +58,7 @@ INSERT INTO country (name, continent_name) VALUES
 	('Ghana', 'Africa'),
 	('Madagascar', 'Africa'),
 	('Cameroon', 'Africa'),
-	('Côte d\'Ivoire', 'Africa'),
+	('Côte d''Ivoire', 'Africa'),
 	('Niger', 'Africa'),
 	('Burkina Faso', 'Africa'),
 	('Mali', 'Africa'),
