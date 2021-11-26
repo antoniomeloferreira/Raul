@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class GameDao extends AbstractEMDao {
+public class GameDao extends AbstractDao {
 
     public boolean saveCalendar(List<Game> gameList) {
 

@@ -4,7 +4,7 @@ import com.raulmvp.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDao extends AbstractEMDao{
+public class UserDao extends AbstractDao {
 
     public UserEntity saveUser(UserEntity user) {
         if(findUserByUserName(user.getUserName()) == null) {

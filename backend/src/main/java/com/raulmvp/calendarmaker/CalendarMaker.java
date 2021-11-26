@@ -12,8 +12,8 @@ public class CalendarMaker {
 
     private List<Game> gameList = new ArrayList<>();
 
-    private List<Team> potAList = CollectionUtils.generateListFromArray(PotTeam.potA);
-    private List<Team> potBList = CollectionUtils.generateListFromArray(PotTeam.potB);
+    //private List<Team> potAList = CollectionUtils.generateListFromArray(PotTeam.potA);
+    //private List<Team> potBList = CollectionUtils.generateListFromArray(PotTeam.potB);
 
 
     public void printCalendar(List<Game> gameList) {
@@ -24,8 +24,8 @@ public class CalendarMaker {
 
     public List<Game> getFinalCalendar() {
 
-        draft(potAList);
-        draft(potBList);
+        //draft(potAList);
+        //draft(potBList);
 
         List<Game> finalCalendar = reverseCalendar(firstRoundCalendar(gameList));
         printCalendar(finalCalendar);

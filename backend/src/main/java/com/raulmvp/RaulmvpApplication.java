@@ -1,5 +1,7 @@
 package com.raulmvp;
 
+import com.raulmvp.dao.UniverseDao;
+import com.raulmvp.model.Universe;
 import com.raulmvp.service.CompetitionService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,8 +12,6 @@ public class RaulmvpApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RaulmvpApplication.class, args);
 
-		CompetitionService competitionService = new CompetitionService();
-		competitionService.createCompetition();
 	}
 
 }

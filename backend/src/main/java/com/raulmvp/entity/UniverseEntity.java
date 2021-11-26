@@ -4,11 +4,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Universe")
+@NamedQueries({
+        @NamedQuery(name = "UniverseEntity.findById", query = "SELECT u FROM UniverseEntity u WHERE u.id=:id"),
+
+})
+
 public class UniverseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;

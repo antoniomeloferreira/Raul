@@ -5,7 +5,7 @@ import com.raulmvp.model.Competition;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CompetitionDao extends AbstractEMDao {
+public class CompetitionDao extends AbstractDao {
 
     public boolean saveCompetition(Competition competition) {
 
@@ -40,7 +40,6 @@ public class CompetitionDao extends AbstractEMDao {
         competitionEntity.setEdition(competition.getEdition() == 0 ? null : competition.getEdition());
         competitionEntity.setName(competition.getName());
         competitionEntity.setOver(competition.isOver());
-        competitionEntity.setNumberOfGames(competition.getNumberOfGames());
 
         String competitionWinnerName = competition.getWinner() == null ? null : competition.getWinner().getUserName();
         competitionEntity.setWinnerUsername(competitionWinnerName);

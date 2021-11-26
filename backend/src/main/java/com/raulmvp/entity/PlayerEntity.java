@@ -1,20 +1,16 @@
 package com.raulmvp.entity;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "Player")
+@Table(name = "player")
 public class PlayerEntity {
 
     @Id
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "team")
+    @Column(name = "team_full_name")
     private String team;
 
     @Column(name = "nationality")
