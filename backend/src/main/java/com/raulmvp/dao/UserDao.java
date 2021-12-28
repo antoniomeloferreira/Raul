@@ -7,10 +7,11 @@ import org.springframework.stereotype.Repository;
 public class UserDao extends AbstractDao {
 
     public UserEntity saveUser(UserEntity user) {
+
         if(findUserByUserName(user.getUserName()) == null) {
             em.persist(user);
         } else {
-            em.merge(user);
+            return null;
         }
 
         return user;
@@ -21,6 +22,7 @@ public class UserDao extends AbstractDao {
         if(userName == null ||  !(userName.length() > 0) ) {
             return null;
         }
+
         return em.find(UserEntity.class, userName);
     }
 
