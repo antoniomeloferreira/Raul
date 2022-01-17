@@ -1,7 +1,6 @@
 package com.raulmvp.controller;
 
 import com.raulmvp.entity.UserEntity;
-import com.raulmvp.model.RaulUser;
 import com.raulmvp.model.dto.RaulUserDto;
 import com.raulmvp.model.dto.RaulUserLoginData;
 import com.raulmvp.model.dto.RaulUserRegisterData;
