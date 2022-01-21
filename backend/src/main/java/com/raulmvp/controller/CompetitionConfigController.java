@@ -15,21 +15,21 @@ public class CompetitionConfigController {
     @Autowired
     private CompetitionConfigService competitionConfigService;
 
-    @PostMapping("/create-competition-config")
-    public ResponseEntity<CompetitionConfigEntity> createCompetitionConfig(@RequestBody CompetitionConfigDto competitionConfig) {
-        CompetitionConfigEntity saveCompetitionConfig = competitionConfigService.createCompetitionConfig(competitionConfig);
-        return new ResponseEntity<>(saveCompetitionConfig, HttpStatus.OK);
-    }
-
-    @GetMapping("/get-competition-config")
-    public ResponseEntity<CompetitionConfigEntity> getCompetitionConfig(Integer id) {
-        CompetitionConfigEntity competitionConfig = competitionConfigService.getCompetitionConfig(id);
+    @PostMapping("/create")
+    public ResponseEntity<CompetitionConfigEntity> createCompetitionConfig(@RequestBody CompetitionConfigDto aCompetitionConfigDto) {
+        CompetitionConfigEntity competitionConfig = competitionConfigService.createCompetitionConfig(aCompetitionConfigDto);
         return new ResponseEntity<>(competitionConfig, HttpStatus.OK);
     }
 
-    @PutMapping("/update-competition-config")
-    public ResponseEntity<CompetitionConfigEntity> updateCompetitionConfig(@RequestBody CompetitionConfigEntity competitionConfigEntity) {
-        CompetitionConfigEntity competitionConfig = competitionConfigService.updateCompetitionConfig(competitionConfigEntity);
+    @GetMapping("/by-id")
+    public ResponseEntity<CompetitionConfigEntity> getCompetitionConfig(@RequestBody Integer aId) {
+        CompetitionConfigEntity competitionConfig = competitionConfigService.getCompetitionConfig(aId);
+        return new ResponseEntity<>(competitionConfig, HttpStatus.OK);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<CompetitionConfigEntity> updateCompetitionConfig(@RequestBody CompetitionConfigEntity aCompetitionConfig) {
+        CompetitionConfigEntity competitionConfig = competitionConfigService.updateCompetitionConfig(aCompetitionConfig);
         return new ResponseEntity<>(competitionConfig, HttpStatus.OK);
     }
 }

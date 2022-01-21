@@ -13,36 +13,36 @@ public class UniverseService {
     @Autowired
     UniverseDao universeDao;
 
-    public UniverseEntity createUniverse(String name) {
+    public UniverseEntity createUniverse(String aName) {
 
-        if(getUniverseByName(name) != null) {
+        if(getUniverseByName(aName) != null) {
             return null;
         }
 
         UniverseEntity universeEntity = new UniverseEntity();
-        universeEntity.setName(name);
+        universeEntity.setName(aName);
 
         return universeDao.createUniverse(universeEntity);
     }
 
-    public List<UniverseEntity> getUniverseListByUsername(String username) {
-        return universeDao.getUniverseListByUsername(username);
+    public List<UniverseEntity> getUniverseListByUsername(String aUsername) {
+        return universeDao.getUniverseListByUsername(aUsername);
     }
 
-    public UniverseEntity getUniverseByName(String name) {
-        return universeDao.getUniverseByName(name);
+    public UniverseEntity getUniverseByName(String aName) {
+        return universeDao.getUniverseByName(aName);
     }
 
-    public UniverseEntity getUniverseById(Integer id) {
+    public UniverseEntity getUniverseById(Integer aId) {
 
-        if (id == null) {
+        if (aId == null) {
             return null;
         }
 
-        return universeDao.getUniverseById(id);
+        return universeDao.getUniverseById(aId);
     }
-    public void deleteUniverse(String name) {
-        universeDao.deleteUniverse(name);
+    public Boolean deleteUniverse(String aName) {
+        return universeDao.deleteUniverse(aName);
     }
 
 }

@@ -10,7 +10,8 @@ import java.util.List;
 @Repository
 public class TeamRankDao extends AbstractDao {
 
-    private static final String PARAMETER_UNIVERSE_ID = "UNIVERSE_ID";
+    private static final String PARAMETER_UNIVERSE_ID = "universe_id";
+    private static final String PARAMETER_TEAM_NAME = "team_name";
 
 
     public TeamRankEntity getTeamRank(String teamName, Integer universeId) {
@@ -20,8 +21,8 @@ public class TeamRankDao extends AbstractDao {
         }
 
         Query q = em.createNamedQuery("TeamRankEntity.getTeamRank");
-        q.setParameter("team_name", teamName);
-        q.setParameter("universe_id", universeId);
+        q.setParameter(PARAMETER_TEAM_NAME, teamName);
+        q.setParameter(PARAMETER_UNIVERSE_ID, universeId);
 
         TeamRankEntity teamRankEntity = (TeamRankEntity) q.getSingleResult();
 

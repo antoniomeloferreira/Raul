@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Team")
-@NamedQueries(
-        {@NamedQuery(name = "TeamEntity.findAllTeams", query = "SELECT t FROM TeamEntity t"),
+@NamedQueries({
+                @NamedQuery(name = "TeamEntity.findAllTeams", query = "SELECT t FROM TeamEntity t"),
                 @NamedQuery(name = "TeamEntity.findTeamByName", query = "SELECT t FROM TeamEntity t WHERE t.initials=:initials"),
-         @NamedQuery(name = "TeamEntity.findTeamByCountry", query = "SELECT t FROM TeamEntity t WHERE t.countryName=:country_name")}
-        )
+                @NamedQuery(name = "TeamEntity.findTeamByCountry", query = "SELECT t FROM TeamEntity t WHERE t.countryName=:country_name")
+            })
 public class TeamEntity {
 
     @Id

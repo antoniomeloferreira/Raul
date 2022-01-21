@@ -30,7 +30,7 @@ public class TeamRankController {
         return new ResponseEntity<>(teamRankList, HttpStatus.OK);
     }
 
-    @PutMapping("/set-teamrank")
+    @PutMapping("/update")
     public ResponseEntity<TeamRankEntity> setTeamRank (@RequestBody TeamRankEntity aTeamRank) {
         teamRankService.setTeamRank(aTeamRank);
         return new ResponseEntity<>(aTeamRank, HttpStatus.OK);

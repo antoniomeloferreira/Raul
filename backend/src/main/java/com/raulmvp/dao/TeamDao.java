@@ -10,62 +10,60 @@ import java.util.List;
 @Repository
 public class TeamDao extends AbstractDao {
 
-    public List<TeamEntity> getAllTeams() {
-        List<TeamEntity> tLst = new ArrayList<>();
-        Query q = em.createNamedQuery("TeamEntity.findAllTeams");
+    private static final String PARAMETER_INITIALS = "initials";
+    private static final String PARAMETER_COUNTRY_NAME = "country_name";
 
-        tLst = q.getResultList();
-        return tLst;
+    public List<TeamEntity> getAllTeams() {
+        Query q = em.createNamedQuery("TeamEntity.findAllTeams");
+        return q.getResultList();
     }
 
-    public TeamEntity getTeamByInitials(String initials) {
+    public TeamEntity getTeamByInitials(String aInitials) {
 
-        if(initials == null ||  !(initials.length() > 0) ) {
+        if(aInitials == null || (aInitials.length() < 1) ) {
             return null;
         }
 
         Query q = em.createNamedQuery("TeamEntity.findTeamByName");
-        q.setParameter("initials", initials);
+        q.setParameter(PARAMETER_INITIALS, aInitials);
 
         TeamEntity teamEntity = (TeamEntity) q.getSingleResult();
 
         return teamEntity;
     }
 
-    public List<TeamEntity> getTeamsByCountry(String countryName) {
-        List<TeamEntity> tLst = new ArrayList<>();
-        Query q = em.createNamedQuery("TeamEntity.findTeamByCountry");
-        q.setParameter("country_name", countryName);
+    public List<TeamEntity> getTeamListByCountry(String aCountryName) {
 
-        tLst = q.getResultList();
-        return tLst;
+        Query q = em.createNamedQuery("TeamEntity.findTeamByCountry");
+        q.setParameter(PARAMETER_COUNTRY_NAME, aCountryName);
+
+        return q.getResultList();
     }
 
-    public TeamEntity createTeam(TeamEntity teamEntity) {
+    public TeamEntity createTeam(TeamEntity aTeam) {
 
-        if(getTeamByInitials(teamEntity.getInitials()) == null) {
-            em.persist(teamEntity);
-        } else {
+        if(getTeamByInitials(aTeam.getInitials()) != null) {
             return null;
         }
 
+        em.persist(aTeam);
+
+        return aTeam;
+    }
+
+    public TeamEntity updateTeam(TeamEntity aTeam) {
+
+        if(getTeamByInitials(aTeam.getInitials()) == null) {
+            return null;
+        }
+
+        TeamEntity teamEntity = getTeamByInitials(aTeam.getInitials());
+        teamEntity.setName(aTeam.getName());
+        teamEntity.setInitials(aTeam.getInitials());
+        teamEntity.setNationalTeam(aTeam.isNationalTeam());
+        teamEntity.setCountryName(aTeam.getCountryName());
+        em.merge(teamEntity);
 
         return teamEntity;
-    }
-
-    public TeamEntity updateTeam(TeamEntity teamEntity) {
-
-        if(getTeamByInitials(teamEntity.getInitials()) == null) {
-            return null;
-        }
-
-        TeamEntity uTeam = getTeamByInitials(teamEntity.getInitials());
-        uTeam.setName(teamEntity.getName());
-        uTeam.setInitials(teamEntity.getInitials());
-        uTeam.setNationalTeam(teamEntity.isNationalTeam());
-        uTeam.setCountryName(teamEntity.getCountryName());
-        em.merge(uTeam);
-
-        return uTeam;
     }
 }

@@ -4,8 +4,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Age")
-@NamedQueries({
-        @NamedQuery(name="AgeEntity.findById", query = "SELECT u FROM AgeEntity u WHERE u.id=:id") })
 public class AgeEntity {
 
     @Id

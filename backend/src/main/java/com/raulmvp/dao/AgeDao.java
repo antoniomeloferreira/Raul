@@ -8,7 +8,7 @@ import javax.persistence.Query;
 @Repository
 public class AgeDao extends AbstractDao {
 
-    public AgeEntity getUniverseById(int id) {
-       return em.find(AgeEntity.class, id);
+    public AgeEntity getUniverseById(Integer aUniverseId) {
+       return em.find(AgeEntity.class, aUniverseId);
     }
 }

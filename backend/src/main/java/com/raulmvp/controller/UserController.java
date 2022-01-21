@@ -20,33 +20,30 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/get-user")
-    public ResponseEntity<UserEntity> getUserByUserName(@RequestBody String username) {
+    @GetMapping("/by-username")
+    public ResponseEntity<UserEntity> getUserByUserName(@RequestBody String aUsername) {
 
-        UserEntity userEntity = userService.getUserByUsername(username);
+        UserEntity userEntity = userService.getUserByUsername(aUsername);
         return new ResponseEntity<>(userEntity, HttpStatus.OK);
     }
 
-    @PostMapping("/create-user")
-    public ResponseEntity<UserEntity> createUser(@RequestBody RaulUserRegisterData user) {
+    @PostMapping("/create")
+    public ResponseEntity<UserEntity> createUser(@RequestBody RaulUserRegisterData aRegisterData) {
 
-        UserEntity raulUser = userService.createUser(user);
-        return raulUser != null ? new ResponseEntity<>(raulUser, HttpStatus.OK) : new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        UserEntity raulUserEntity = userService.createUser(aRegisterData);
+        return raulUserEntity != null ? new ResponseEntity<>(raulUserEntity, HttpStatus.OK) : new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
-    @DeleteMapping("/delete-user")
-    public ResponseEntity<String> deleteUser(@RequestBody String username) {
-        userService.deleteUser(username);
-        return new ResponseEntity<>("User deleted", HttpStatus.OK);
+    @DeleteMapping("/delete")
+    public ResponseEntity<Boolean> deleteUser(@RequestBody String aUsername) {
+        Boolean isDeleted = userService.deleteUser(aUsername);
+        return new ResponseEntity<>(isDeleted, HttpStatus.OK);
     }
 
     @PostMapping("/login")
-    public ResponseEntity<RaulUserDto> login(@RequestBody RaulUserLoginData loginData) {
+    public ResponseEntity<RaulUserDto> login(@RequestBody RaulUserLoginData aLoginData) {
 
-        System.out.println(loginData.getPassword());
-        System.out.println(loginData.getUsername());
-
-        RaulUserDto raulUserDto = userService.login(loginData);
+        RaulUserDto raulUserDto = userService.login(aLoginData);
         return raulUserDto != null ? new ResponseEntity<>(raulUserDto, HttpStatus.OK) : new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 }

@@ -24,7 +24,7 @@ public class UserService {
         UserEntity persistedUser = getUserByUsername(aLoginData.getUsername());
 
         if (persistedUser == null) {
-            return raulUserDto;
+            return null;
         }
 
         if (persistedUser.getPasswordHash().equals(aLoginData.getPassword())) {
@@ -39,13 +39,13 @@ public class UserService {
         return raulUserDto;
     }
 
-    public UserEntity getUserByUsername(String username) {
-        return userDao.findUserByUserName(username);
+    public UserEntity getUserByUsername(String aUsername) {
+        return userDao.findUserByUserName(aUsername);
     }
 
-    public UserEntity createUser(RaulUserRegisterData registerData) {
+    public UserEntity createUser(RaulUserRegisterData aRegisterData) {
 
-        UserEntity persistedUser = getUserByUsername(registerData.getUsername());
+        UserEntity persistedUser = getUserByUsername(aRegisterData.getUsername());
 
         if (persistedUser != null) {
             return null;
@@ -53,16 +53,16 @@ public class UserService {
 
         UserEntity userEntity = new UserEntity();
 
-        userEntity.setName(registerData.getName());
-        userEntity.setPasswordHash(registerData.getPassword());
-        userEntity.setUserName(registerData.getUsername());
+        userEntity.setName(aRegisterData.getName());
+        userEntity.setPasswordHash(aRegisterData.getPassword());
+        userEntity.setUserName(aRegisterData.getUsername());
 
         userEntity.setSalt("risos");
 
         return userDao.saveUser(userEntity);
     }
 
-    public void deleteUser(String username) {
-        userDao.deleteUserByUserName(username);
+    public Boolean deleteUser(String aUsername) {
+        return userDao.deleteUserByUserName(aUsername);
     }
 }

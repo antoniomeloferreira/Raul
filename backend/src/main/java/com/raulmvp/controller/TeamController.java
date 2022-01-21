@@ -16,33 +16,33 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
-    @GetMapping("/get-teams")
+    @GetMapping("/get-list")
     public ResponseEntity<List<TeamEntity>> getAllTeams() {
-        List tLst = teamService.getAllTeams();
-        return new ResponseEntity<>(tLst, HttpStatus.OK);
+        List teamList = teamService.getAllTeams();
+        return new ResponseEntity<>(teamList, HttpStatus.OK);
     }
 
-    @GetMapping("/get-team-by-name")
-    public ResponseEntity<TeamEntity> getTeamByInitials(String initials) {
-        TeamEntity teamEntity = teamService.getTeamByInitials(initials);
+    @GetMapping("/by-name")
+    public ResponseEntity<TeamEntity> getTeamByInitials(@RequestBody String aInitials) {
+        TeamEntity teamEntity = teamService.getTeamByInitials(aInitials);
         return new ResponseEntity<>(teamEntity, HttpStatus.OK);
     }
 
-    @GetMapping("/get-team-by-country")
-    public ResponseEntity<List<TeamEntity>> getTeamByCountry(String countryName) {
-        List tLst = teamService.getTeamByCountry(countryName);
-        return new ResponseEntity<>(tLst, HttpStatus.OK);
+    @GetMapping("/by-country")
+    public ResponseEntity<List<TeamEntity>> getTeamByCountry(@RequestBody String aCountryName) {
+        List teamList = teamService.getTeamByCountry(aCountryName);
+        return new ResponseEntity<>(teamList, HttpStatus.OK);
     }
 
-    @PostMapping("/create-team")
-    public ResponseEntity<String> createTeam(@RequestBody TeamEntity teamEntity) {
-        teamService.createTeam(teamEntity);
-        return teamService.createTeam(teamEntity) != null? new ResponseEntity<>("Team created", HttpStatus.OK) : new ResponseEntity<>("Team already exists", HttpStatus.BAD_REQUEST);
+    @PostMapping("/create")
+    public ResponseEntity<TeamEntity> createTeam(@RequestBody TeamEntity aTeam) {
+        TeamEntity teamEntity = teamService.createTeam(aTeam);
+        return teamEntity != null ? new ResponseEntity<>(teamEntity, HttpStatus.OK) : new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping("/update-team")
-    public ResponseEntity<TeamEntity> updateTeam(@RequestBody TeamEntity teamEntity) {
-        teamService.updateTeam(teamEntity);
+    @PutMapping("/update")
+    public ResponseEntity<TeamEntity> updateTeam(@RequestBody TeamEntity aTeamEntity) {
+        TeamEntity teamEntity = teamService.updateTeam(aTeamEntity);
         return new ResponseEntity<>(teamEntity, HttpStatus.OK);
     }
 }

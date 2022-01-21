@@ -6,28 +6,27 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CompetitionConfigDao extends AbstractDao {
 
-    public CompetitionConfigEntity createCompetitionConfig(CompetitionConfigEntity competitionConfig) {
-        em.persist(competitionConfig);
-        return  competitionConfig;
+    public CompetitionConfigEntity createCompetitionConfig(CompetitionConfigEntity aCompetitionConfig) {
+        em.persist(aCompetitionConfig);
+        return  aCompetitionConfig;
     }
 
-    public CompetitionConfigEntity getCompetitionConfig(Integer id) {
-        return em.find(CompetitionConfigEntity.class, id);
+    public CompetitionConfigEntity getCompetitionConfig(Integer aId) {
+        return em.find(CompetitionConfigEntity.class, aId);
     }
 
-    public CompetitionConfigEntity updateCompetitionConfig(CompetitionConfigEntity competitionConfigEntity) {
+    public CompetitionConfigEntity updateCompetitionConfig(CompetitionConfigEntity aCompetitionConfig) {
 
-        if(competitionConfigEntity.getId() == null) {
+        if(aCompetitionConfig.getId() == null) {
             return null;
         }
 
-        CompetitionConfigEntity uCompetitionConfig = getCompetitionConfig(competitionConfigEntity.getId());
-        uCompetitionConfig.setNumOfUsers(competitionConfigEntity.getNumOfUsers());
-        uCompetitionConfig.setNumOfRounds(competitionConfigEntity.getNumOfRounds());
-        uCompetitionConfig.setReverse(competitionConfigEntity.isReverse());
-        em.merge(uCompetitionConfig);
+        CompetitionConfigEntity competitionConfigEntity = getCompetitionConfig(aCompetitionConfig.getId());
+        competitionConfigEntity.setNumOfUsers(aCompetitionConfig.getNumOfUsers());
+        competitionConfigEntity.setNumOfRounds(aCompetitionConfig.getNumOfRounds());
+        competitionConfigEntity.setReverse(aCompetitionConfig.isReverse());
+        em.merge(competitionConfigEntity);
 
-        return uCompetitionConfig;
+        return competitionConfigEntity;
     }
-
 }

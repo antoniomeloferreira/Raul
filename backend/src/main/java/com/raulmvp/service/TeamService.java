@@ -13,23 +13,23 @@ public class TeamService {
     @Autowired
     TeamDao teamDao;
 
-    public TeamEntity createTeam(TeamEntity teamEntity) {
-        return teamDao.createTeam(teamEntity);
+    public TeamEntity createTeam(TeamEntity aTeamEntity) {
+        return teamDao.createTeam(aTeamEntity);
     }
 
     public List<TeamEntity> getAllTeams() {
         return teamDao.getAllTeams();
     }
 
-    public TeamEntity getTeamByInitials(String initials) {
-        return teamDao.getTeamByInitials(initials);
+    public TeamEntity getTeamByInitials(String aInitials) {
+        return teamDao.getTeamByInitials(aInitials);
     }
 
-    public List<TeamEntity> getTeamByCountry(String countryName) {
-        return teamDao.getTeamsByCountry(countryName);
+    public List<TeamEntity> getTeamByCountry(String aCountryName) {
+        return teamDao.getTeamListByCountry(aCountryName);
     }
 
-    public TeamEntity updateTeam(TeamEntity teamEntity) {
-         return teamDao.updateTeam(teamEntity);
+    public TeamEntity updateTeam(TeamEntity aTeamEntity) {
+         return teamDao.updateTeam(aTeamEntity);
     }
 }

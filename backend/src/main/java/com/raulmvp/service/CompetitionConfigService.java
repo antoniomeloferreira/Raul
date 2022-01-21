@@ -12,21 +12,21 @@ public class CompetitionConfigService {
     @Autowired
     CompetitionConfigDao competitionConfigDao;
 
-    public CompetitionConfigEntity createCompetitionConfig(CompetitionConfigDto competitionConfig) {
+    public CompetitionConfigEntity createCompetitionConfig(CompetitionConfigDto aCompetitionConfigDto) {
 
-        CompetitionConfigEntity createCompetitionConfigEntity = new CompetitionConfigEntity();
-        createCompetitionConfigEntity.setNumOfRounds(competitionConfig.getNumOfRounds());
-        createCompetitionConfigEntity.setNumOfUsers(competitionConfig.getNumOfUsers());
-        createCompetitionConfigEntity.setReverse(competitionConfig.isReverse());
+        CompetitionConfigEntity competitionConfigEntity = new CompetitionConfigEntity();
+        competitionConfigEntity.setNumOfRounds(aCompetitionConfigDto.getNumOfRounds());
+        competitionConfigEntity.setNumOfUsers(aCompetitionConfigDto.getNumOfUsers());
+        competitionConfigEntity.setReverse(aCompetitionConfigDto.isReverse());
 
-        return competitionConfigDao.createCompetitionConfig(createCompetitionConfigEntity);
+        return competitionConfigDao.createCompetitionConfig(competitionConfigEntity);
     }
 
-    public CompetitionConfigEntity getCompetitionConfig(Integer id) {
-        return competitionConfigDao.getCompetitionConfig(id);
+    public CompetitionConfigEntity getCompetitionConfig(Integer aId) {
+        return competitionConfigDao.getCompetitionConfig(aId);
     }
 
-    public CompetitionConfigEntity updateCompetitionConfig(CompetitionConfigEntity competitionConfigEntity) {
-        return competitionConfigDao.updateCompetitionConfig(competitionConfigEntity);
+    public CompetitionConfigEntity updateCompetitionConfig(CompetitionConfigEntity aCompetitionConfig) {
+        return competitionConfigDao.updateCompetitionConfig(aCompetitionConfig);
     }
 }
