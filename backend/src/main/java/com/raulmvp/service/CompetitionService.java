@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class CompetitionService {
-
+    //TODO: big stuff
     @Autowired
     private CompetitionDao competitionDao;
 
@@ -21,7 +21,7 @@ public class CompetitionService {
 
     CalendarMaker calendarMaker = new CalendarMaker();
 
-    public Competition createCompetition() {
+    public Competition createCompetition(Competition aCompetition) {
 
         Competition competition = new Competition();
 

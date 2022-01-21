@@ -4,11 +4,10 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "rauluser")
-
 public class UserEntity {
 
     @Id
-    @Column(name = "user_name")
+    @Column(name = "username")
     private String userName;
 
     @Column(name = "name")

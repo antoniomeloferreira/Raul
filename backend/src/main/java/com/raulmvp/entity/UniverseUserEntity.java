@@ -1,24 +1,26 @@
 package com.raulmvp.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "UniverseUser")
-public class UniverseUserEntity {
+@Table(name = "universeuser")
+public class UniverseUserEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "universe_id")
+    private Integer universeId;
 
+    @Id
     @Column(name = "username")
     private String username;
 
     public Integer getId() {
-        return id;
+        return universeId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.universeId = id;
     }
 
     public String getUsername() {

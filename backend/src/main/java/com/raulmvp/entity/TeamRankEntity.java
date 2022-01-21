@@ -1,18 +1,22 @@
 package com.raulmvp.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
+import com.raulmvp.entity.teamRankId.TeamRankId;
 
 @Entity
-@Table(name = "TeamRank")
+@IdClass(TeamRankId.class)
+@Table(name = "Teamrank")
+@NamedQueries({@NamedQuery(name = "TeamRankEntity.getTeamRank", query = "SELECT t FROM TeamRankEntity t WHERE t.universeId=:universe_id AND t.teamName=:team_name"),
+                @NamedQuery(name = "TeamRankEntity.getTeamRankListByUniverseId", query = "SELECT t FROM TeamRankEntity t WHERE t.universeId=:universe_id")
+                })
 public class TeamRankEntity {
 
     @Id
     @Column(name = "universe_id")
     private Integer universeId;
 
+    @Id
     @Column(name = "team_name")
     private String teamName;
 
