@@ -1,15 +1,14 @@
 package com.raulmvp.entity;
 
-import com.raulmvp.entity.teamRankId.TeamRankId;
-import com.raulmvp.model.Team;
-
 import javax.persistence.*;
+
+import com.raulmvp.entity.teamRankId.TeamRankId;
 
 @Entity
 @IdClass(TeamRankId.class)
 @Table(name = "Teamrank")
 @NamedQueries({@NamedQuery(name = "TeamRankEntity.getTeamRank", query = "SELECT t FROM TeamRankEntity t WHERE t.universeId=:universe_id AND t.teamName=:team_name"),
-                @NamedQuery(name = "TeamRankEntity.getTeamRankByUniverseId", query = "SELECT t FROM TeamRankEntity t WHERE t.universeId=:universe_id")
+                @NamedQuery(name = "TeamRankEntity.getTeamRankListByUniverseId", query = "SELECT t FROM TeamRankEntity t WHERE t.universeId=:universe_id")
                 })
 public class TeamRankEntity {
 

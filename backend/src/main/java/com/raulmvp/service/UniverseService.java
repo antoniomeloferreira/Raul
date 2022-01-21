@@ -34,6 +34,11 @@ public class UniverseService {
     }
 
     public UniverseEntity getUniverseById(Integer id) {
+
+        if (id == null) {
+            return null;
+        }
+
         return universeDao.getUniverseById(id);
     }
     public void deleteUniverse(String name) {

@@ -1,5 +1,6 @@
 package com.raulmvp.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.raulmvp.entity.UserEntity;
 import com.raulmvp.model.dto.RaulUserDto;
 import com.raulmvp.model.dto.RaulUserLoginData;
@@ -7,6 +8,7 @@ import com.raulmvp.model.dto.RaulUserRegisterData;
 import com.raulmvp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +21,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/get-user")
-    public ResponseEntity<UserEntity> getUserByUserName(String userName) {
-        UserEntity userEntity = userService.getUserByUsername(userName);
+    public ResponseEntity<UserEntity> getUserByUserName(@RequestBody String username) {
+
+        UserEntity userEntity = userService.getUserByUsername(username);
         return new ResponseEntity<>(userEntity, HttpStatus.OK);
     }
 
@@ -32,7 +35,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete-user")
-    public ResponseEntity<String> deleteUser(String username) {
+    public ResponseEntity<String> deleteUser(@RequestBody String username) {
         userService.deleteUser(username);
         return new ResponseEntity<>("User deleted", HttpStatus.OK);
     }

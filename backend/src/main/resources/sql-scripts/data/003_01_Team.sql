@@ -19,7 +19,7 @@ INSERT INTO team (initials, full_name, country_name, is_national_team) VALUES
 	('Marítimo M.', 'Club Sport Marítimo Funchal', 'Portugal', false),
 	('Santa Clara', 'Santa Clara Açores - Futebol, SAD', 'Portugal', false),
 
-//necessário alterar
+--necessário alterar
 
 	('Real Madrid Clube de Fútbol', 'R. Madrid', 'Spain', false),
 	('Futebol Club Barcelona', 'F.C. Barcelona', 'Spain', false),

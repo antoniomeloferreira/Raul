@@ -10,22 +10,8 @@ import java.util.List;
 @Repository
 public class TeamRankDao extends AbstractDao {
 
+    private static final String PARAMETER_UNIVERSE_ID = "UNIVERSE_ID";
 
-    public TeamRankEntity setTeamRank(TeamRankEntity teamRankEntity) {
-
-        if(teamRankEntity.getTeamName() == null) {
-            return null;
-        }
-
-        TeamRankEntity setTeamRank = getTeamRank(teamRankEntity.getTeamName(), teamRankEntity.getUniverseId());
-        setTeamRank.setUniverseId(teamRankEntity.getUniverseId());
-        setTeamRank.setTeamName(teamRankEntity.getTeamName());
-        setTeamRank.setRanking(teamRankEntity.getRanking());
-        setTeamRank.setDefault(teamRankEntity.getDefault());
-        em.merge(teamRankEntity);
-
-        return setTeamRank;
-    }
 
     public TeamRankEntity getTeamRank(String teamName, Integer universeId) {
 
@@ -42,13 +28,28 @@ public class TeamRankDao extends AbstractDao {
         return teamRankEntity;
     }
 
-    public List<TeamRankEntity> getTeamRankByUniverseId(Integer universeId) {
-        List<TeamRankEntity> tLst = new ArrayList<>();
-        Query q = em.createNamedQuery("TeamRankEntity.getTeamRankByUniverseId");
-        q.setParameter("universe_id", universeId);
+    public TeamRankEntity setTeamRank(TeamRankEntity aTeamRank) {
 
-        tLst = q.getResultList();
-        return tLst;
+        if(aTeamRank.getTeamName() == null) {
+            return null;
+        }
+
+        TeamRankEntity teamRank = getTeamRank(aTeamRank.getTeamName(), aTeamRank.getUniverseId());
+        teamRank.setRanking(aTeamRank.getRanking());
+        teamRank.setDefault(aTeamRank.getDefault());
+        em.merge(aTeamRank);
+
+        return teamRank;
+    }
+
+    public List<TeamRankEntity> getTeamRankListByUniverseId(Integer aUniverseId) {
+
+        List<TeamRankEntity> teamRankList;
+        Query q = em.createNamedQuery("TeamRankEntity.getTeamRankListByUniverseId");
+        q.setParameter(PARAMETER_UNIVERSE_ID, aUniverseId);
+
+        teamRankList = q.getResultList();
+        return teamRankList;
     }
 
 }

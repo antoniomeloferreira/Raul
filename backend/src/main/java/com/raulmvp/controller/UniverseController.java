@@ -17,31 +17,31 @@ public class UniverseController {
     UniverseService universeService;
 
     @PostMapping("/create-universe")
-    public ResponseEntity<String> createUniverse(String name) {
+    public ResponseEntity<String> createUniverse(@RequestBody String name) {
         UniverseEntity universeEntity = universeService.createUniverse(name);
         return universeService.getUniverseByName(name) == null ? new ResponseEntity<>("UniverseEntity created", HttpStatus.OK) : new ResponseEntity<>("UniverseEntity's name already exists", HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/get-by-id")
-    public ResponseEntity<UniverseEntity> getUniverseEntityById(int id) {
+    public ResponseEntity<UniverseEntity> getUniverseEntityById(@RequestBody Integer id) {
         UniverseEntity universeEntity = universeService.getUniverseById(id);
         return new ResponseEntity<UniverseEntity>(universeEntity, HttpStatus.OK);
     }
 
     @GetMapping("/get-by-username")
-    public ResponseEntity<List<UniverseEntity>> getUniverseByUsername(String username) {
+    public ResponseEntity<List<UniverseEntity>> getUniverseByUsername(@RequestBody String username) {
         List uLst = universeService.getUniverseListByUsername(username);
         return new ResponseEntity<>(uLst, HttpStatus.OK);
     }
 
     @GetMapping("/get-by-name")
-    public ResponseEntity<UniverseEntity> getUniverseByName(String name) {
+    public ResponseEntity<UniverseEntity> getUniverseByName(@RequestBody String name) {
         UniverseEntity universeEntity = universeService.getUniverseByName(name);
         return new ResponseEntity<>(universeEntity, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete-universe")
-    public ResponseEntity<String> deleteUser(String name) {
+    public ResponseEntity<String> deleteUser(@RequestBody String name) {
         universeService.deleteUniverse(name);
         return new ResponseEntity<>("Universe deleted", HttpStatus.OK);
     }
