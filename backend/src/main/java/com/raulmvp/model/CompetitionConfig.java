@@ -3,6 +3,7 @@ import com.raulmvp.utils.MathUtils;
 
 public class CompetitionConfig {
 
+    private int id;
     private final int numberOfUsers;
     private final int numberOfRounds;
     private boolean isReverse;
@@ -22,6 +23,14 @@ public class CompetitionConfig {
 
     public int getTotalNumberOfGames() {
         return numberOfRounds * (getNumberOfGamesPerMatchWeek() * getMatchWeeksPerRound());
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getNumberOfUsers() {

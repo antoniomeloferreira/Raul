@@ -26,8 +26,8 @@ public class UserDao extends AbstractDao {
         return em.find(UserEntity.class, userName);
     }
 
-    public void deleteUserByUserName(String id) {
-        UserEntity user = findUserByUserName(id);
+    public void deleteUserByUserName(String username) {
+        UserEntity user = findUserByUserName(username);
         em.remove(user);
     }
 }

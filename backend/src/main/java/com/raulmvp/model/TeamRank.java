@@ -2,17 +2,17 @@ package com.raulmvp.model;
 
 public class TeamRank {
 
-    private int id;
+    private int universeId;
     private Team teamName;
     private int ranking;
     private boolean isDefault;
 
-    public int getId() {
-        return id;
+    public int getUniverseId() {
+        return universeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUniverseId(int universeId) {
+        this.universeId = universeId;
     }
 
     public Team getTeamName() {

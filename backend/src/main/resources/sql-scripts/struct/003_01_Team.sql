@@ -1,6 +1,6 @@
 CREATE TABLE Team (
-  full_name varchar(64) PRIMARY KEY,
-  initials varchar(30) NOT NULL,
+  initials varchar(30) PRIMARY KEY,
+  full_name varchar(64) NOT NULL,
   is_national_team boolean NOT NULL,
   country_name varchar(64) NOT NULL,
 

@@ -61,4 +61,8 @@ public class UserService {
 
         return userDao.saveUser(userEntity);
     }
+
+    public void deleteUser(String username) {
+        userDao.deleteUserByUserName(username);
+    }
 }

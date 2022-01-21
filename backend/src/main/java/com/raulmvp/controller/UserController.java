@@ -19,9 +19,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/get-user")
-    public UserEntity getUserByUserName(String userName) {
-
-        return userService.getUserByUsername(userName);
+    public ResponseEntity<UserEntity> getUserByUserName(String userName) {
+        UserEntity userEntity = userService.getUserByUsername(userName);
+        return new ResponseEntity<>(userEntity, HttpStatus.OK);
     }
 
     @PostMapping("/create-user")
@@ -29,6 +29,12 @@ public class UserController {
 
         UserEntity raulUser = userService.createUser(user);
         return raulUser != null ? new ResponseEntity<>(raulUser, HttpStatus.OK) : new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("/delete-user")
+    public ResponseEntity<String> deleteUser(String username) {
+        userService.deleteUser(username);
+        return new ResponseEntity<>("User deleted", HttpStatus.OK);
     }
 
     @PostMapping("/login")
