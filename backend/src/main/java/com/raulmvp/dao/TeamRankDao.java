@@ -4,7 +4,6 @@ import com.raulmvp.entity.TeamRankEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository

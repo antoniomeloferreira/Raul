@@ -1,10 +1,16 @@
 package com.raulmvp.entity;
 
+import com.raulmvp.entity.teamRankId.UniverseUserId;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@IdClass(UniverseUserId.class)
 @Table(name = "universeuser")
+@NamedQueries({
+        @NamedQuery(name = "UniverseUserEntity.getUniverseUser", query = "SELECT u FROM UniverseUserEntity u WHERE u.username =: username ")
+})
 public class UniverseUserEntity implements Serializable {
 
     @Id
